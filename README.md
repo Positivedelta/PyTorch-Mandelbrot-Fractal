@@ -1,4 +1,4 @@
-# A Simple PyTorch Madelbrot Generator
+# A Simple PyTorch Madelbrot Fractal Generator
 
 #### Developed using
 - PyTorch v2.5
