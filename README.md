@@ -9,4 +9,4 @@
 - CUDA Version to follow shortly...
 
 #### Example Render
-<img src='https://github.com/Positivedelta/Java-Mandelbrot-Fractal/blob/09ec3e982800d2e42b9b70be4310dbe9f46b1db5/mandelbrot.png'>
+<img src='https://github.com/Positivedelta/PyTorch-Mandelbrot-Fractal/blob/b118f06893dc0f7048d3cccef3d7456f59bcf969/fractal.png'>
