@@ -11,9 +11,9 @@ from torchvision.utils import save_image
 IMAGE_WIDTH = 1280
 IMAGE_HEIGHT = 1024
 
-def render(xMin = -2.2, xMax = 0.8, yMin = -1.2, yMax = 1.2, width = IMAGE_WIDTH, height = IMAGE_HEIGHT, maxIterations = 70):
-    realStep = torch.linspace(xMin, xMax, width, dtype=torch.float64).cpu()
-    imaginaryStep = torch.linspace(yMin, yMax, height, dtype=torch.float64).cpu()
+def render(realMin = -2.2, realMax = 0.8, imaginaryMin = -1.2, imaginaryMax = 1.2, width = IMAGE_WIDTH, height = IMAGE_HEIGHT, maxIterations = 70):
+    realStep = torch.linspace(realMin, realMax, width, dtype=torch.float64).cpu()
+    imaginaryStep = torch.linspace(imaginaryMin, imaginaryMax, height, dtype=torch.float64).cpu()
 
     # create and initialise the complex 'c', 'z' and 'pixel' tensors
     # FIXME! decide which is faster, meshgrid or broadcasting? should be tested on a GPU using the PyTorch CUDA timing API
@@ -40,14 +40,14 @@ def render(xMin = -2.2, xMax = 0.8, yMin = -1.2, yMax = 1.2, width = IMAGE_WIDTH
 
     return rgb
 
-def mandelbrot(x = -0.7, y = 0.0, zoom = 1.0, maxIterations = 70):
-    xOffset = 1.5 / zoom
-    xMin, xMax = x - xOffset, x + xOffset
+def mandelbrot(real = -0.7, imaginary = 0.0, zoom = 1.0, maxIterations = 70):
+    realOffset = 1.5 / zoom
+    realMin, realMax = real - realOffset, real + realOffset
 
-    yOffset = 1.2 / zoom
-    yMin, yMax = y + yOffset, y - yOffset
+    imaginaryOffset = 1.2 / zoom
+    imaginaryMin, imaginaryMax = imaginary + imaginaryOffset, imaginary - imaginaryOffset
 
-    return render(xMin, xMax, yMin, yMax, IMAGE_WIDTH, IMAGE_HEIGHT, maxIterations)
+    return render(realMin, realMax, imaginaryMin, imaginaryMax, IMAGE_WIDTH, IMAGE_HEIGHT, maxIterations)
 
 #
 # other 'interesting' coordinates...
