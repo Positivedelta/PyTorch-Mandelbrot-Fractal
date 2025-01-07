@@ -41,10 +41,8 @@ def render(realMin = -2.2, realMax = 0.8, imaginaryMin = -1.2, imaginaryMax = 1.
     return rgb
 
 def mandelbrot(real = -0.7, imaginary = 0.0, zoom = 1.0, maxIterations = 70):
-    realOffset = 1.5 / zoom
+    realOffset, imaginaryOffset = 1.5 / zoom, 1.2 / zoom
     realMin, realMax = real - realOffset, real + realOffset
-
-    imaginaryOffset = 1.2 / zoom
     imaginaryMin, imaginaryMax = imaginary + imaginaryOffset, imaginary - imaginaryOffset
 
     return render(realMin, realMax, imaginaryMin, imaginaryMax, IMAGE_WIDTH, IMAGE_HEIGHT, maxIterations)
